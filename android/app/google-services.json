@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "766960778713",
+    "project_id": "volunteerbazaar-ac0ca",
+    "storage_bucket": "volunteerbazaar-ac0ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766960778713:android:779f359f258c2b83efedc8",
+        "android_client_info": {
+          "package_name": "com.example.volunteer_bazaar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjcnbAuiv7M6GnLVgNsjnKm244UmTcCvo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:volunteer_bazaar/screens/home_screen.dart';
+import 'package:volunteer_bazaar/screens/signup_screen.dart';
 import 'package:volunteer_bazaar/utils/colors_utils.dart';
 import 'package:volunteer_bazaar/reusable widgets/reusable_widgets.dart';
 
@@ -46,16 +50,49 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   reusableTextField("Enter Password", Icons.lock_outline, true,
                       _passwordTextController),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  signInSignUpButton(context, true, () {})
+                  signInSignUpButton(context, true, () {
+                    FirebaseAuth.instance
+                        .signInWithEmailAndPassword(
+                            email: _emailTextController.text,
+                            password: _passwordTextController.text)
+                        .then((value) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomeScreen()));
+                    }).onError((error, StackTrace) {
+                      print("Error ${error.toString()}");
+                    });
+                  }),
+                  signUpOption(),
                 ],
               ),
             ),
           ),
         ),
       ),
+    );
+  }
+
+  Row signUpOption() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text("Don't have account?",
+            style: TextStyle(color: Colors.white70)),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const SignUpScreen()));
+          },
+          child: const Text("Sign Up",
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+        )
+      ],
     );
   }
 }
