@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:volunteer_bazaar/screens/home_screen.dart';
 import 'package:volunteer_bazaar/screens/signup_screen.dart';
@@ -63,7 +62,9 @@ class _SignInScreenState extends State<SignInScreen> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => const HomeScreen()));
+                      // ignore: avoid_types_as_parameter_names
                     }).onError((error, StackTrace) {
+                      // ignore: avoid_print
                       print("Error ${error.toString()}");
                     });
                   }),

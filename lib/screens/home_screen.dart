@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:volunteer_bazaar/screens/signin_screen.dart';
 
@@ -19,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: const Text("Logout"),
           onPressed: () {
             FirebaseAuth.instance.signOut().then((value) {
+              // ignore: avoid_print
               print("Signed Out");
               Navigator.push(
                   context,
